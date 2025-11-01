@@ -14,5 +14,4 @@ EXPOSE 5678
 ENV N8N_HOST=0.0.0.0
 ENV N8N_PORT=5678
 
-# Start n8n (official image already has correct entrypoint)
-CMD ["n8n"]
+# Use the correct entrypoint - don't override CMD, let the base image handle it
