@@ -1,8 +1,17 @@
-# Use official n8n image
-FROM n8nio/n8n:latest
+# Use official Node.js image
+FROM node:18-alpine
 
-# Expose n8n port
+# Set working directory
+WORKDIR /app
+
+# Install n8n globally
+RUN npm install -g n8n
+
+# Copy environment and any local files (optional)
+COPY . .
+
+# Expose n8n default port
 EXPOSE 5678
 
-# Default command
+# Start n8n
 CMD ["n8n", "start"]
